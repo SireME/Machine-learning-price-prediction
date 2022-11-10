@@ -33,7 +33,7 @@ class data(Resource):
     def get(self):
         # dataframe witrh sample data of area and price
         df=pd.read_csv('sample area and price data.csv')
-        return df.to_html()
+        return df.to_json()
 
 # api call for prediction
 api.add_resource(prediction, '/prediction/<int:area>')
