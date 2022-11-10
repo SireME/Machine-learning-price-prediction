@@ -28,8 +28,18 @@ class prediction(Resource):
         prediction= int(prediction[0])
         return str(prediction)
 
+class data(Resource):
+    # display of analysis data
+    def get(self):
+        # dataframe witrh sample data of area and price
+        df=pd.read_csv('sample area and price data.csv')
+        return df.to_html()
 
+# api call for prediction
 api.add_resource(prediction, '/prediction/<int:area>')
+
+# api call for data display
+api.add_resource(data, '/data')
 
 
 
